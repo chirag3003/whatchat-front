@@ -75,6 +75,7 @@ function Chat({messages}) {
                         type="text" 
                         placeholder="Type a message" 
                         onChange={(e) => {setInput(e.target.value)}}
+                        autofocus="true"
                     />
                     <button 
                         type="submit"

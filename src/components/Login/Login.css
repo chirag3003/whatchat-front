@@ -1,0 +1,33 @@
+.login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-container {
+  width: 30%;
+  height: 75%;
+  position: relative;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  padding: 40px 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.login-container > h3 {
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+.login-input {
+  width: 100%;
+  margin-bottom: 20px !important;
+}
+.login-btn {
+  width: 100%;
+  margin-top: 20px !important;
+}

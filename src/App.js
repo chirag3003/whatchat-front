@@ -4,11 +4,21 @@ import './App.css';
 import Chat from './components/Chat/Chat';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from './axios';
+import Login from './components/Login/Login';
+
 
 
 function App() {
 
+  const [loggedIn,logIn] = useState(false);
   const [messages,setMessages] = useState([]);
+  const [username,changeUsername] = useState("");
+
+  let signIn=(username) => {
+    logIn(true);
+    changeUsername(username);
+  }
+
 
   useEffect(() => {
     axios.get('/messages/sync').then(response => {
@@ -32,13 +42,28 @@ function App() {
     }
   },[messages])
 
+  let AppBody =() => {
+    if(loggedIn){
+      return(
+        <div className="app-body">
+          <Sidebar username={username} />
+          <Chat messages={messages} />
+        </div>
+      )
+    }
+    else
+        return(
+          <div className='app-body'>
+            <Login signIn={signIn} />
+          </div>
+        )
+  }
+
 
   return (
     <div className="app">
-      <div className="app-body">
-        <Sidebar />
-        <Chat messages={messages} />
-      </div>
+
+      <AppBody />  
 
     </div>
   );
